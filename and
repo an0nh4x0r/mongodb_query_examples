@@ -1,0 +1,19 @@
+lets first insert a document in the users collection
+
+db.users.insert({name: { 'first': 'John', 'last': 'Jones' }})
+
+Now we have four users into the users collection
+1. John Doe
+2. Jane Wilson
+3. Bob Smith
+4. John Jones
+
+The and query here is 
+
+db.users.find( { $and: [{'name.first': 'John'}, {'name.last': 'Jones'}] }, {'name.first': 1, 'name.last': 1, _id: 0} )
+
+This query basically fetches only one document.
+i.e. John Jones
+as the name.first has two options 'John Doe' & 'John Jones'
+But since and means both the qualifiers must be true to fetch a document from the collection
+thats why the only document we got is of John Jones.
