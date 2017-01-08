@@ -1,0 +1,15 @@
+Here in the first query of or operator we are supplying 'name.first': 'John' and 'name.last': 'Wilson'. Since the database of has a users collections
+and in that collection there are basically three users i.e. 'John Doe', 'Jane Wilson' and 'Bob Smith'. so 'or' condition basically means that
+either of one condition must be true. That's why the first query fetches data of john doe and jane wilson.
+
+db.users.find({ $or: [{ 'name.first': 'John' }, { 'name.last': 'Wilson' }] }, {title: 1, _id: 0, name: 1})
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Here in the second query there is only one possible output and that's why the result only fetches one document or record from the database.
+i.e. John Doe.
+
+db.users.find({ $or: [{'name.first': 'John'}, {'name.last': 'Doe'}] }, { title: 1, name: 1, _id: 0 })
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
