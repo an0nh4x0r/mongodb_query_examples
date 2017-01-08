@@ -1,0 +1,16 @@
+nor simply means not or. Although you need to match one of the qualifers for or operators but in not operator you have to not match both the qualifer
+that's when it will fetch result
+
+for example:
+
+db.users.find({ $nor: [ {'name.first': 'John'}, {'name.last': 'Wilson'} ] }, {name: 1, _id: 0})
+
+the above query only fetches the document of bob wilson.
+
+NOR simply means Not OR.
+Means opposite of OR.
+That's why NOR will fetch all those documents that will not satisfy the condition of OR.
+
+PROOF is simple the copy & paste the same query written above into the terminal and run it.
+It will give you the only document of bob wilson but when we just edit the spelling of 
+NOR operator to OR( just deleting the N from NOR ) it will fetch the documents of John Doe & Jane Wilson.
