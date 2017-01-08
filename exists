@@ -1,0 +1,17 @@
+We will run a query for email field in the users collections to check in how much documents it exists or not
+
+db.users.find({ email: { $exists: 1 } }, {name: 1, _id: 0, email: 1})
+
+this will return documents of 'John Doe', 'Jane Wilson' & 'Bob Smith'
+but it will not return the document of 'John Jones' as it doesn't has email field
+
+lets run the same query again but this time lets check the existence of email as false
+
+db.users.find({email: {$exists: 0}}, {name: 1, _id: 0, email: 1})
+
+and as expected it fetches the document (record) of 'John Jones'
+
+**********IMPORTANT**********
+true = 1
+false = 0
+we can use use interchangably 1 or true & 0 or false in the query
